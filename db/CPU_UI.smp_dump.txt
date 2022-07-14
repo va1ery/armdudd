@@ -1,0 +1,7 @@
+
+State Machine - |CPU_UI|CPU:comb_286|CPU_state
+Name CPU_state.execute CPU_state.decode CPU_state.writeBack CPU_state.fetch 
+CPU_state.fetch 0 0 0 0 
+CPU_state.writeBack 0 0 1 1 
+CPU_state.decode 0 1 0 1 
+CPU_state.execute 1 0 0 1 

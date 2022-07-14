@@ -1,0 +1,1131 @@
+Analysis & Synthesis report for CPU_UI
+Thu Jul 14 15:28:24 2022
+Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis DSP Block Usage Summary
+  9. State Machine - |CPU_UI|CPU:comb_286|CPU_state
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: CPU:comb_286
+ 14. Parameter Settings for User Entity Instance: CPU:comb_286|ProgMod:comb_72
+ 15. Parameter Settings for User Entity Instance: CPU:comb_286|Op2Mod:comb_73|ShiftMod:comb_36
+ 16. Parameter Settings for User Entity Instance: CPU:comb_286|DataMod:comb_78|ShiftMod:LDRSTR
+ 17. Parameter Settings for Inferred Entity Instance: CPU:comb_286|MultiplyIns:comb_76|lpm_mult:Mult0
+ 18. lpm_mult Parameter Settings by Entity Instance
+ 19. Port Connectivity Checks: "CPU:comb_286|DataMod:comb_78"
+ 20. Port Connectivity Checks: "CPU:comb_286|MultiplyIns:comb_76"
+ 21. Port Connectivity Checks: "CPU:comb_286|Op2Mod:comb_73|ShiftMod:comb_36"
+ 22. Port Connectivity Checks: "CPU:comb_286|ProgMod:comb_72"
+ 23. Post-Synthesis Netlist Statistics for Top Partition
+ 24. Elapsed Time Per Partition
+ 25. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Thu Jul 14 15:28:23 2022       ;
+; Quartus Prime Version              ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
+; Revision Name                      ; CPU_UI                                      ;
+; Top-level Entity Name              ; CPU_UI                                      ;
+; Family                             ; MAX 10                                      ;
+; Total logic elements               ; 10,878                                      ;
+;     Total combinational functions  ; 10,796                                      ;
+;     Dedicated logic registers      ; 2,075                                       ;
+; Total registers                    ; 2075                                        ;
+; Total pins                         ; 71                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 8                                           ;
+; Total PLLs                         ; 0                                           ;
+; UFM blocks                         ; 0                                           ;
+; ADC blocks                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; 10M50DAF484C7G     ;                    ;
+; Top-level entity name                                            ; CPU_UI             ; CPU_UI             ;
+; Family name                                                      ; MAX 10             ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.3%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                               ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                           ; Library ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------+---------+
+; CPU_UI.v                         ; yes             ; User Verilog HDL File        ; C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v                     ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/lpm_mult.tdf    ;         ;
+; aglobal180.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/aglobal180.inc  ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/lpm_add_sub.inc ;         ;
+; multcore.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/multcore.inc    ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/bypassff.inc    ;         ;
+; altshift.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.0/quartus/libraries/megafunctions/altshift.inc    ;         ;
+; db/mult_tns.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/Leonid/Documents/QuartusProjects/db/mult_tns.tdf              ;         ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------+---------+
+
+
++-------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                       ;
++---------------------------------------------+---------------------+
+; Resource                                    ; Usage               ;
++---------------------------------------------+---------------------+
+; Estimated Total logic elements              ; 10,878              ;
+;                                             ;                     ;
+; Total combinational functions               ; 10796               ;
+; Logic element usage by number of LUT inputs ;                     ;
+;     -- 4 input functions                    ; 8406                ;
+;     -- 3 input functions                    ; 2081                ;
+;     -- <=2 input functions                  ; 309                 ;
+;                                             ;                     ;
+; Logic elements by mode                      ;                     ;
+;     -- normal mode                          ; 10378               ;
+;     -- arithmetic mode                      ; 418                 ;
+;                                             ;                     ;
+; Total registers                             ; 2075                ;
+;     -- Dedicated logic registers            ; 2075                ;
+;     -- I/O registers                        ; 0                   ;
+;                                             ;                     ;
+; I/O pins                                    ; 71                  ;
+;                                             ;                     ;
+; Embedded Multiplier 9-bit elements          ; 8                   ;
+;                                             ;                     ;
+; Maximum fan-out node                        ; CPU:comb_286|comb~1 ;
+; Maximum fan-out                             ; 1296                ;
+; Total fan-out                               ; 46994               ;
+; Average fan-out                             ; 3.61                ;
++---------------------------------------------+---------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                       ;
++---------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------------------+-------------+--------------+
+; Compilation Hierarchy Node            ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                             ; Entity Name ; Library Name ;
++---------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------------------+-------------+--------------+
+; |CPU_UI                               ; 10796 (85)          ; 2075 (0)                  ; 0           ; 0          ; 8            ; 0       ; 4         ; 71   ; 0            ; 0          ; |CPU_UI                                                                         ; CPU_UI      ; work         ;
+;    |CPU:comb_286|                     ; 10711 (2084)        ; 2075 (650)                ; 0           ; 0          ; 8            ; 0       ; 4         ; 0    ; 0            ; 0          ; |CPU_UI|CPU:comb_286                                                            ; CPU         ; work         ;
+;       |DataMod:comb_78|               ; 7432 (7060)         ; 1296 (1296)               ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CPU_UI|CPU:comb_286|DataMod:comb_78                                            ; DataMod     ; work         ;
+;          |ShiftMod:LDRSTR|            ; 372 (372)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CPU_UI|CPU:comb_286|DataMod:comb_78|ShiftMod:LDRSTR                            ; ShiftMod    ; work         ;
+;       |DataProcIns:comb_74|           ; 383 (383)           ; 33 (33)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CPU_UI|CPU:comb_286|DataProcIns:comb_74                                        ; DataProcIns ; work         ;
+;       |MultiplyIns:comb_76|           ; 113 (34)            ; 64 (64)                   ; 0           ; 0          ; 8            ; 0       ; 4         ; 0    ; 0            ; 0          ; |CPU_UI|CPU:comb_286|MultiplyIns:comb_76                                        ; MultiplyIns ; work         ;
+;          |lpm_mult:Mult0|             ; 79 (0)              ; 0 (0)                     ; 0           ; 0          ; 8            ; 0       ; 4         ; 0    ; 0            ; 0          ; |CPU_UI|CPU:comb_286|MultiplyIns:comb_76|lpm_mult:Mult0                         ; lpm_mult    ; work         ;
+;             |mult_tns:auto_generated| ; 79 (79)             ; 0 (0)                     ; 0           ; 0          ; 8            ; 0       ; 4         ; 0    ; 0            ; 0          ; |CPU_UI|CPU:comb_286|MultiplyIns:comb_76|lpm_mult:Mult0|mult_tns:auto_generated ; mult_tns    ; work         ;
+;       |Op2Mod:comb_73|                ; 559 (182)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CPU_UI|CPU:comb_286|Op2Mod:comb_73                                             ; Op2Mod      ; work         ;
+;          |ShiftMod:comb_36|           ; 377 (377)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CPU_UI|CPU:comb_286|Op2Mod:comb_73|ShiftMod:comb_36                            ; ShiftMod    ; work         ;
+;       |ProgMod:comb_72|               ; 140 (140)           ; 32 (32)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CPU_UI|CPU:comb_286|ProgMod:comb_72                                            ; ProgMod     ; work         ;
++---------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary        ;
++---------------------------------------+-------------+
+; Statistic                             ; Number Used ;
++---------------------------------------+-------------+
+; Simple Multipliers (9-bit)            ; 0           ;
+; Simple Multipliers (18-bit)           ; 4           ;
+; Embedded Multiplier Blocks            ; --          ;
+; Embedded Multiplier 9-bit elements    ; 8           ;
+; Signed Embedded Multipliers           ; 0           ;
+; Unsigned Embedded Multipliers         ; 4           ;
+; Mixed Sign Embedded Multipliers       ; 0           ;
+; Variable Sign Embedded Multipliers    ; 0           ;
+; Dedicated Input Shift Register Chains ; 0           ;
++---------------------------------------+-------------+
+Note: number of Embedded Multiplier Blocks used is only available after a successful fit.
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------+
+; State Machine - |CPU_UI|CPU:comb_286|CPU_state                                                     ;
++---------------------+-------------------+------------------+---------------------+-----------------+
+; Name                ; CPU_state.execute ; CPU_state.decode ; CPU_state.writeBack ; CPU_state.fetch ;
++---------------------+-------------------+------------------+---------------------+-----------------+
+; CPU_state.fetch     ; 0                 ; 0                ; 0                   ; 0               ;
+; CPU_state.writeBack ; 0                 ; 0                ; 1                   ; 1               ;
+; CPU_state.decode    ; 0                 ; 1                ; 0                   ; 1               ;
+; CPU_state.execute   ; 1                 ; 0                ; 0                   ; 1               ;
++---------------------+-------------------+------------------+---------------------+-----------------+
+
+
++-------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                        ;
++--------------------------------------------------+----------------------------------------+
+; Register name                                    ; Reason for Removal                     ;
++--------------------------------------------------+----------------------------------------+
+; CPU:comb_286|MultiplyIns:comb_76|CPSRMul[28..31] ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[17][5]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[17][4]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[17][3]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[17][2]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[17][1]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[17][0]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[18][7]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[18][6]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[18][5]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[18][4]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[18][3]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[18][2]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[18][1]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[18][0]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[19][7]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[19][6]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[19][5]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[19][4]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[19][3]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[19][2]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[19][1]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[19][0]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[20][7]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[20][6]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[20][5]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[20][4]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[20][3]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[20][2]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[20][1]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[20][0]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[21][7]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[21][6]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[21][5]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[21][4]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[21][3]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[21][2]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[21][1]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[21][0]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[22][7]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[22][6]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[22][5]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[22][4]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[22][3]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[22][2]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[22][1]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[22][0]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[23][7]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[23][6]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[23][5]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[23][4]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[23][3]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[23][2]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[23][1]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[23][0]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[24][7]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[24][6]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[24][5]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[24][4]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[24][3]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[24][2]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[24][1]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[24][0]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[25][7]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[25][6]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[25][5]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[25][4]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[25][3]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[25][2]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[25][1]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[25][0]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[26][7]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[26][6]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[26][5]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[26][4]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[26][3]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[26][2]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[26][1]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[26][0]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[27][7]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[27][6]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[27][5]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[27][4]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[27][3]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[27][2]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[27][1]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[27][0]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[28][7]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[28][6]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[28][5]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[28][4]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[28][3]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[28][2]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[28][1]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[28][0]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[29][7]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[29][6]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[29][5]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[29][4]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[29][3]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[29][2]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[29][1]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[29][0]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[30][7]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[30][6]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[30][5]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[30][4]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[30][3]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[30][2]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[30][1]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[30][0]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[31][7]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[31][6]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[31][5]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[31][4]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[31][3]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[31][2]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[31][1]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[31][0]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[32][7]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[32][6]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[32][5]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[32][4]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[32][3]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[32][2]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[32][1]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[32][0]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[33][7]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[33][6]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[33][5]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[33][4]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[33][3]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[33][2]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[33][1]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[33][0]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[34][7]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[34][6]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[34][5]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[34][4]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[34][3]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[34][2]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[34][1]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[34][0]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[35][7]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[35][6]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[35][5]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[35][4]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[35][3]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[35][2]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[35][1]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[35][0]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[36][7]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[36][6]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[36][5]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[36][4]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[36][3]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[36][2]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[36][1]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[36][0]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[37][7]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[37][6]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[37][5]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[37][4]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[37][3]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[37][2]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[37][1]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[37][0]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[38][7]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[38][6]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[38][5]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[38][4]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[38][3]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[38][2]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[38][1]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[38][0]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[39][7]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[39][6]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[39][5]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[39][4]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[39][3]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[39][2]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[39][1]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[39][0]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[149][7]     ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[149][6]     ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[149][5]     ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[149][4]     ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[149][3]     ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[149][2]     ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[149][1]     ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[149][0]     ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[17][6]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[17][7]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[16][0]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[16][1]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[16][2]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[16][3]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[16][4]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[16][5]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[16][6]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[16][7]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[15][0]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[15][1]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[15][2]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[15][3]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[15][4]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[15][5]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[15][6]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[15][7]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[14][0]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[14][1]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[14][2]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[14][3]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[14][4]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[14][5]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[14][6]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[14][7]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[13][0]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[13][1]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[13][2]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[13][3]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[13][4]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[13][5]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[13][6]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[13][7]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[12][0]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[12][1]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[12][2]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[12][3]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[12][4]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[12][5]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[12][6]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[12][7]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[11][0]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[11][1]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[11][2]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[11][3]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[11][4]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[11][5]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[11][6]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[11][7]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[10][0]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[10][1]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[10][2]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[10][3]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[10][4]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[10][5]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[10][6]      ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[10][7]      ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[9][0]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[9][1]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[9][2]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[9][3]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[9][4]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[9][5]       ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[9][6]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[9][7]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[8][0]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[8][1]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[8][2]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[8][3]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[8][4]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[8][5]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[8][6]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[8][7]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[7][0]       ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[7][1]       ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[7][2]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[7][3]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[7][4]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[7][5]       ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[7][6]       ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[7][7]       ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[6][0]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[6][1]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[6][2]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[6][3]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[6][4]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[6][5]       ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[6][6]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[6][7]       ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[5][0]       ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[5][1]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[5][2]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[5][3]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[5][4]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[5][5]       ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[5][6]       ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[5][7]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[4][0]       ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[4][1]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[4][2]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[4][3]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[4][4]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[4][5]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[4][6]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[4][7]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[3][0]       ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[3][1]       ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[3][2]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[3][3]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[3][4]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[3][5]       ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[3][6]       ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[3][7]       ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[2][0]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[2][1]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[2][2]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[2][3]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[2][4]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[2][5]       ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[2][6]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[2][7]       ; Stuck at VCC due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[1][0]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[1][1]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[1][2]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[1][3]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[1][4]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[1][5]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[1][6]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[1][7]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[0][0]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[0][1]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[0][2]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[0][3]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[0][4]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[0][5]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[0][6]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|ProgMod:comb_72|progMem[0][7]       ; Stuck at GND due to stuck port data_in ;
+; CPU:comb_286|CPU_state~6                         ; Lost fanout                            ;
+; CPU:comb_286|CPU_state~7                         ; Lost fanout                            ;
+; Total Number of Removed Registers = 334          ;                                        ;
++--------------------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 2075  ;
+; Number of registers using Synchronous Clear  ; 30    ;
+; Number of registers using Synchronous Load   ; 62    ;
+; Number of registers using Asynchronous Clear ; 36    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 1941  ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------+
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |CPU_UI|CPU:comb_286|CPSR[29]                             ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |CPU_UI|CPU:comb_286|R[15][1]                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|R[13][8]                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|R[12][15]                            ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|R[11][29]                            ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|R[10][15]                            ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|R[9][31]                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|R[8][24]                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|R[7][9]                              ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|R[6][27]                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|R[5][0]                              ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|R[4][12]                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|R[3][13]                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|R[2][16]                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|R[1][23]                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|R[0][13]                             ;
+; 8:1                ; 32 bits   ; 160 LEs       ; 0 LEs                ; 160 LEs                ; Yes        ; |CPU_UI|CPU:comb_286|MultiplyIns:comb_76|Rd64[19]         ;
+; 16:1               ; 32 bits   ; 320 LEs       ; 32 LEs               ; 288 LEs                ; Yes        ; |CPU_UI|CPU:comb_286|MultiplyIns:comb_76|Rd64[53]         ;
+; 5:1                ; 30 bits   ; 90 LEs        ; 30 LEs               ; 60 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|R[15][14]                            ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[149][6]          ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[148][6]          ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[147][2]          ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[146][6]          ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[145][7]          ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[144][1]          ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[143][5]          ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[142][7]          ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[141][6]          ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[140][6]          ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[139][6]          ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[138][3]          ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[137][5]          ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[136][6]          ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[135][3]          ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[134][4]          ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[133][1]          ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[132][7]          ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[131][4]          ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[130][6]          ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[129][1]          ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[128][2]          ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[127][2]          ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[126][2]          ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[125][4]          ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[124][4]          ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[123][3]          ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[122][5]          ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[121][2]          ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[120][5]          ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[119][4]          ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[118][6]          ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[117][5]          ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[116][4]          ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[115][3]          ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[114][5]          ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[113][5]          ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[112][5]          ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[111][5]          ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[110][5]          ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[109][5]          ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[108][3]          ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[107][2]          ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[106][5]          ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[105][2]          ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[104][4]          ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[103][1]          ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[102][2]          ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[101][2]          ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[100][2]          ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[99][5]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[98][5]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[97][7]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[96][4]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[95][0]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[94][2]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[93][6]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[92][6]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[91][7]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[90][6]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[89][6]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[88][3]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[87][3]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[86][7]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[85][6]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[84][3]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[83][0]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[82][0]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[81][0]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[80][0]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[79][0]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[78][7]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[77][5]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[76][3]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[75][0]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[74][4]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[73][6]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[72][0]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[71][1]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[70][5]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[69][5]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[68][0]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[67][0]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[66][0]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[65][2]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[64][0]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[63][7]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[62][6]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[61][6]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[60][0]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[59][2]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[58][1]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[57][7]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[56][5]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[55][5]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[54][5]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[53][5]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[52][5]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[51][5]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[50][5]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[49][5]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[48][5]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[47][5]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[46][5]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[45][5]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[44][5]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[43][5]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[42][5]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[41][2]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[40][7]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[39][1]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[38][1]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[37][0]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[36][5]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[35][7]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[34][2]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[33][3]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[32][2]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[31][7]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[30][1]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[29][1]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[28][1]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[27][2]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[26][4]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[25][1]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[24][1]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[23][1]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[22][7]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[21][2]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[20][4]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[19][5]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[18][6]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[17][7]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[16][1]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[15][0]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[14][1]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[13][6]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[12][3]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[11][1]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[10][1]           ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[9][1]            ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[8][1]            ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[7][1]            ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[6][1]            ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[5][1]            ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[4][1]            ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[3][1]            ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[2][7]            ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[1][2]            ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|RAM[0][1]            ;
+; 12:1               ; 31 bits   ; 248 LEs       ; 186 LEs              ; 62 LEs                 ; Yes        ; |CPU_UI|CPU:comb_286|DataProcIns:comb_74|Rd[30]           ;
+; 153:1              ; 8 bits    ; 816 LEs       ; 808 LEs              ; 8 LEs                  ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|Rd64[13]             ;
+; 153:1              ; 8 bits    ; 816 LEs       ; 808 LEs              ; 8 LEs                  ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|Rd64[27]             ;
+; 77:1               ; 4 bits    ; 204 LEs       ; 204 LEs              ; 0 LEs                  ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|Rd64[7]              ;
+; 77:1               ; 4 bits    ; 204 LEs       ; 204 LEs              ; 0 LEs                  ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|Rd64[3]              ;
+; 78:1               ; 8 bits    ; 416 LEs       ; 408 LEs              ; 8 LEs                  ; Yes        ; |CPU_UI|CPU:comb_286|DataMod:comb_78|Rd64[16]             ;
+; 16:1               ; 32 bits   ; 320 LEs       ; 320 LEs              ; 0 LEs                  ; Yes        ; |CPU_UI|CPU:comb_286|RsVal[24]                            ;
+; 16:1               ; 32 bits   ; 320 LEs       ; 320 LEs              ; 0 LEs                  ; Yes        ; |CPU_UI|CPU:comb_286|RmVal[0]                             ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |CPU_UI|CPU:comb_286|DataMod:comb_78|ShiftMod:LDRSTR|Mux1 ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |CPU_UI|CPU:comb_286|DataMod:comb_78|ShiftMod:LDRSTR|Mux5 ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |CPU_UI|CPU:comb_286|concat                               ;
+; 16:1               ; 32 bits   ; 320 LEs       ; 320 LEs              ; 0 LEs                  ; No         ; |CPU_UI|CPU:comb_286|Mux16                                ;
+; 16:1               ; 32 bits   ; 320 LEs       ; 320 LEs              ; 0 LEs                  ; No         ; |CPU_UI|CPU:comb_286|Mux102                               ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 64 LEs               ; 32 LEs                 ; No         ; |CPU_UI|CPU:comb_286|concat                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------+
+
+
++-----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:comb_286 ;
++----------------+-------+----------------------------------+
+; Parameter Name ; Value ; Type                             ;
++----------------+-------+----------------------------------+
+; fetch          ; 01    ; Unsigned Binary                  ;
+; decode         ; 10    ; Unsigned Binary                  ;
+; execute        ; 11    ; Unsigned Binary                  ;
+; writeBack      ; 00    ; Unsigned Binary                  ;
+; PC             ; 15    ; Signed Integer                   ;
+; LR             ; 14    ; Signed Integer                   ;
++----------------+-------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:comb_286|ProgMod:comb_72 ;
++----------------+------------------+---------------------------------------+
+; Parameter Name ; Value            ; Type                                  ;
++----------------+------------------+---------------------------------------+
+; R0             ; 0001000000000000 ; Unsigned Binary                       ;
+; R1             ; 0001000000000001 ; Unsigned Binary                       ;
+; R2             ; 0001000000000010 ; Unsigned Binary                       ;
+; R3             ; 0001000000000011 ; Unsigned Binary                       ;
+; R4             ; 0001000000000100 ; Unsigned Binary                       ;
+; R5             ; 0001000000000101 ; Unsigned Binary                       ;
+; R6             ; 0001000000000110 ; Unsigned Binary                       ;
+; R7             ; 0001000000000111 ; Unsigned Binary                       ;
+; R8             ; 0001000000001000 ; Unsigned Binary                       ;
+; R9             ; 0001000000001001 ; Unsigned Binary                       ;
+; R10            ; 0001000000001010 ; Unsigned Binary                       ;
+; R11            ; 0001000000001011 ; Unsigned Binary                       ;
+; R12            ; 0001000000001100 ; Unsigned Binary                       ;
+; R13            ; 0001000000001101 ; Unsigned Binary                       ;
+; R14            ; 0001000000001110 ; Unsigned Binary                       ;
+; R15            ; 0001000000001111 ; Unsigned Binary                       ;
+; SP             ; 0001000000001101 ; Unsigned Binary                       ;
+; LR             ; 0001000000001110 ; Unsigned Binary                       ;
+; LSL            ; 0001000000000000 ; Unsigned Binary                       ;
+; LSR            ; 0001000000000001 ; Unsigned Binary                       ;
+; ASR            ; 0001000000000010 ; Unsigned Binary                       ;
+; ROR            ; 0001000000000011 ; Unsigned Binary                       ;
++----------------+------------------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:comb_286|Op2Mod:comb_73|ShiftMod:comb_36 ;
++----------------+-------+------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                             ;
++----------------+-------+------------------------------------------------------------------+
+; REGSIZE        ; 32    ; Signed Integer                                                   ;
+; LSL            ; 00    ; Unsigned Binary                                                  ;
+; LSR            ; 01    ; Unsigned Binary                                                  ;
+; ASR            ; 10    ; Unsigned Binary                                                  ;
+; ROR            ; 11    ; Unsigned Binary                                                  ;
++----------------+-------+------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:comb_286|DataMod:comb_78|ShiftMod:LDRSTR ;
++----------------+-------+------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                             ;
++----------------+-------+------------------------------------------------------------------+
+; REGSIZE        ; 32    ; Signed Integer                                                   ;
+; LSL            ; 00    ; Unsigned Binary                                                  ;
+; LSR            ; 01    ; Unsigned Binary                                                  ;
+; ASR            ; 10    ; Unsigned Binary                                                  ;
+; ROR            ; 11    ; Unsigned Binary                                                  ;
++----------------+-------+------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: CPU:comb_286|MultiplyIns:comb_76|lpm_mult:Mult0 ;
++------------------------------------------------+----------+--------------------------------------+
+; Parameter Name                                 ; Value    ; Type                                 ;
++------------------------------------------------+----------+--------------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY                           ;
+; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY                         ;
+; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE                         ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE                       ;
+; LPM_WIDTHA                                     ; 32       ; Untyped                              ;
+; LPM_WIDTHB                                     ; 32       ; Untyped                              ;
+; LPM_WIDTHP                                     ; 64       ; Untyped                              ;
+; LPM_WIDTHR                                     ; 64       ; Untyped                              ;
+; LPM_WIDTHS                                     ; 1        ; Untyped                              ;
+; LPM_REPRESENTATION                             ; UNSIGNED ; Untyped                              ;
+; LPM_PIPELINE                                   ; 0        ; Untyped                              ;
+; LATENCY                                        ; 0        ; Untyped                              ;
+; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped                              ;
+; INPUT_B_IS_CONSTANT                            ; NO       ; Untyped                              ;
+; USE_EAB                                        ; OFF      ; Untyped                              ;
+; MAXIMIZE_SPEED                                 ; 5        ; Untyped                              ;
+; DEVICE_FAMILY                                  ; MAX 10   ; Untyped                              ;
+; CARRY_CHAIN                                    ; MANUAL   ; Untyped                              ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K                  ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped                              ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped                              ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped                              ;
+; CBXI_PARAMETER                                 ; mult_tns ; Untyped                              ;
+; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped                              ;
+; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped                              ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped                              ;
++------------------------------------------------+----------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance                                          ;
++---------------------------------------+-------------------------------------------------+
+; Name                                  ; Value                                           ;
++---------------------------------------+-------------------------------------------------+
+; Number of entity instances            ; 1                                               ;
+; Entity Instance                       ; CPU:comb_286|MultiplyIns:comb_76|lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 32                                              ;
+;     -- LPM_WIDTHB                     ; 32                                              ;
+;     -- LPM_WIDTHP                     ; 64                                              ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                                        ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                              ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                              ;
+;     -- USE_EAB                        ; OFF                                             ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                            ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                              ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                              ;
++---------------------------------------+-------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CPU:comb_286|DataMod:comb_78"                                                                                                                       ;
++--------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                                                                                                                            ;
++--------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+; op2raw ; Input ; Warning  ; Input port expression (12 bits) is smaller than the input port (32 bits) it drives.  Extra input bit(s) "op2raw[31..12]" will be connected to GND. ;
++--------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CPU:comb_286|MultiplyIns:comb_76"                                                                                                           ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                      ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Rn   ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (32 bits) it drives.  Extra input bit(s) "Rn[31..1]" will be connected to GND. ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CPU:comb_286|Op2Mod:comb_73|ShiftMod:comb_36"                                                                                                                                           ;
++------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port       ; Type  ; Severity ; Details                                                                                                                                                                            ;
++------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; shiftCount ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (5 bits) it drives.  The 27 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CPU:comb_286|ProgMod:comb_72"                                                                                                                                                     ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                                                            ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; adr  ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (7 bits) it drives.  The 25 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 71                          ;
+; cycloneiii_ff         ; 2075                        ;
+;     CLR               ; 4                           ;
+;     ENA               ; 1877                        ;
+;     ENA CLR           ; 2                           ;
+;     ENA CLR SLD       ; 30                          ;
+;     ENA SLD           ; 32                          ;
+;     SCLR              ; 30                          ;
+;     plain             ; 100                         ;
+; cycloneiii_lcell_comb ; 10801                       ;
+;     arith             ; 418                         ;
+;         2 data inputs ; 134                         ;
+;         3 data inputs ; 284                         ;
+;     normal            ; 10383                       ;
+;         0 data inputs ; 5                           ;
+;         1 data inputs ; 9                           ;
+;         2 data inputs ; 166                         ;
+;         3 data inputs ; 1797                        ;
+;         4 data inputs ; 8406                        ;
+; cycloneiii_mac_mult   ; 4                           ;
+; cycloneiii_mac_out    ; 4                           ;
+;                       ;                             ;
+; Max LUT depth         ; 21.30                       ;
+; Average LUT depth     ; 14.33                       ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:46     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
+    Info: Processing started: Thu Jul 14 15:27:22 2022
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off CPU_UI -c CPU_UI
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 8 design units, including 8 entities, in source file cpu_ui.v
+    Info (12023): Found entity 1: CPU_UI File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 21
+    Info (12023): Found entity 2: CPU File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 63
+    Info (12023): Found entity 3: DataProcIns File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 226
+    Info (12023): Found entity 4: Op2Mod File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 272
+    Info (12023): Found entity 5: ShiftMod File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 291
+    Info (12023): Found entity 6: MultiplyIns File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 320
+    Info (12023): Found entity 7: DataMod File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 346
+    Info (12023): Found entity 8: ProgMod File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 473
+Warning (10236): Verilog HDL Implicit Net warning at CPU_UI.v(139): created implicit net for "SelM64" File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 139
+Warning (10236): Verilog HDL Implicit Net warning at CPU_UI.v(145): created implicit net for "RdVal" File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 145
+Critical Warning (10846): Verilog HDL Instantiation warning at CPU_UI.v(142): instance has no name File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 142
+Critical Warning (10846): Verilog HDL Instantiation warning at CPU_UI.v(284): instance has no name File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 284
+Critical Warning (10846): Verilog HDL Instantiation warning at CPU_UI.v(143): instance has no name File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 143
+Critical Warning (10846): Verilog HDL Instantiation warning at CPU_UI.v(144): instance has no name File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 144
+Critical Warning (10846): Verilog HDL Instantiation warning at CPU_UI.v(145): instance has no name File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 145
+Critical Warning (10846): Verilog HDL Instantiation warning at CPU_UI.v(146): instance has no name File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 146
+Critical Warning (10846): Verilog HDL Instantiation warning at CPU_UI.v(57): instance has no name File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 57
+Info (12127): Elaborating entity "CPU_UI" for the top level hierarchy
+Info (12128): Elaborating entity "CPU" for hierarchy "CPU:comb_286" File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 57
+Info (12128): Elaborating entity "ProgMod" for hierarchy "CPU:comb_286|ProgMod:comb_72" File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 142
+Warning (10027): Verilog HDL or VHDL warning at the CPU_UI.v(787): index expression is not wide enough to address all of the elements in the array File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 787
+Warning (10230): Verilog HDL assignment warning at CPU_UI.v(779): truncated value with size 40 to match size of target (32) File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 779
+Warning (10030): Net "progMem[40..148]" at CPU_UI.v(782) has no driver or initial value, using a default initial value '0' File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 782
+Info (12128): Elaborating entity "Op2Mod" for hierarchy "CPU:comb_286|Op2Mod:comb_73" File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 143
+Warning (10230): Verilog HDL assignment warning at CPU_UI.v(282): truncated value with size 40 to match size of target (32) File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 282
+Info (12128): Elaborating entity "ShiftMod" for hierarchy "CPU:comb_286|Op2Mod:comb_73|ShiftMod:comb_36" File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 284
+Warning (10230): Verilog HDL assignment warning at CPU_UI.v(306): truncated value with size 32 to match size of target (1) File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 306
+Info (12128): Elaborating entity "DataProcIns" for hierarchy "CPU:comb_286|DataProcIns:comb_74" File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 144
+Warning (10230): Verilog HDL assignment warning at CPU_UI.v(246): truncated value with size 32 to match size of target (1) File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 246
+Warning (10034): Output port "CPSR_DP[27..0]" at CPU_UI.v(234) has no driver File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 234
+Info (12128): Elaborating entity "MultiplyIns" for hierarchy "CPU:comb_286|MultiplyIns:comb_76" File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 145
+Info (12128): Elaborating entity "DataMod" for hierarchy "CPU:comb_286|DataMod:comb_78" File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 146
+Info (278001): Inferred 1 megafunctions from design logic
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "CPU:comb_286|MultiplyIns:comb_76|Mult0" File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 335
+Info (12130): Elaborated megafunction instantiation "CPU:comb_286|MultiplyIns:comb_76|lpm_mult:Mult0" File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 335
+Info (12133): Instantiated megafunction "CPU:comb_286|MultiplyIns:comb_76|lpm_mult:Mult0" with the following parameter: File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 335
+    Info (12134): Parameter "LPM_WIDTHA" = "32"
+    Info (12134): Parameter "LPM_WIDTHB" = "32"
+    Info (12134): Parameter "LPM_WIDTHP" = "64"
+    Info (12134): Parameter "LPM_WIDTHR" = "64"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_tns.tdf
+    Info (12023): Found entity 1: mult_tns File: C:/Users/Leonid/Documents/QuartusProjects/db/mult_tns.tdf Line: 30
+Warning (12241): 4 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (13014): Ignored 208 buffer(s)
+    Info (13019): Ignored 208 SOFT buffer(s)
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "HEX0[7]" is stuck at VCC File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 26
+    Warning (13410): Pin "HEX1[7]" is stuck at VCC File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 26
+    Warning (13410): Pin "HEX2[7]" is stuck at VCC File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 26
+    Warning (13410): Pin "HEX3[7]" is stuck at VCC File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 26
+    Warning (13410): Pin "HEX4[0]" is stuck at VCC File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 26
+    Warning (13410): Pin "HEX4[1]" is stuck at VCC File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 26
+    Warning (13410): Pin "HEX4[2]" is stuck at VCC File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 26
+    Warning (13410): Pin "HEX4[3]" is stuck at VCC File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 26
+    Warning (13410): Pin "HEX4[4]" is stuck at VCC File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 26
+    Warning (13410): Pin "HEX4[5]" is stuck at VCC File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 26
+    Warning (13410): Pin "HEX4[6]" is stuck at VCC File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 26
+    Warning (13410): Pin "HEX4[7]" is stuck at VCC File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 26
+    Warning (13410): Pin "HEX5[0]" is stuck at VCC File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 26
+    Warning (13410): Pin "HEX5[1]" is stuck at VCC File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 26
+    Warning (13410): Pin "HEX5[2]" is stuck at VCC File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 26
+    Warning (13410): Pin "HEX5[3]" is stuck at VCC File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 26
+    Warning (13410): Pin "HEX5[4]" is stuck at VCC File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 26
+    Warning (13410): Pin "HEX5[5]" is stuck at VCC File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 26
+    Warning (13410): Pin "HEX5[6]" is stuck at VCC File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 26
+    Warning (13410): Pin "HEX5[7]" is stuck at VCC File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 26
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 2 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/Leonid/Documents/QuartusProjects/CPU_UI.v Line: 22
+Info (21057): Implemented 11021 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 13 input pins
+    Info (21059): Implemented 58 output pins
+    Info (21061): Implemented 10942 logic cells
+    Info (21062): Implemented 8 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 41 warnings
+    Info: Peak virtual memory: 669 megabytes
+    Info: Processing ended: Thu Jul 14 15:28:24 2022
+    Info: Elapsed time: 00:01:02
+    Info: Total CPU time (on all processors): 00:01:17
+
+

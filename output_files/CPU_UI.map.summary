@@ -1,0 +1,16 @@
+Analysis & Synthesis Status : Successful - Thu Jul 14 15:28:23 2022
+Quartus Prime Version : 18.0.0 Build 614 04/24/2018 SJ Lite Edition
+Revision Name : CPU_UI
+Top-level Entity Name : CPU_UI
+Family : MAX 10
+Total logic elements : 10,878
+    Total combinational functions : 10,796
+    Dedicated logic registers : 2,075
+Total registers : 2075
+Total pins : 71
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 8
+Total PLLs : 0
+UFM blocks : 0
+ADC blocks : 0

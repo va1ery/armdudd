@@ -1,0 +1,18 @@
+Fitter Status : Successful - Thu Jul 14 15:31:36 2022
+Quartus Prime Version : 18.0.0 Build 614 04/24/2018 SJ Lite Edition
+Revision Name : CPU_UI
+Top-level Entity Name : CPU_UI
+Family : MAX 10
+Device : 10M50DAF484C7G
+Timing Models : Final
+Total logic elements : 10,869 / 49,760 ( 22 % )
+    Total combinational functions : 10,797 / 49,760 ( 22 % )
+    Dedicated logic registers : 2,048 / 49,760 ( 4 % )
+Total registers : 2048
+Total pins : 71 / 360 ( 20 % )
+Total virtual pins : 0
+Total memory bits : 0 / 1,677,312 ( 0 % )
+Embedded Multiplier 9-bit elements : 8 / 288 ( 3 % )
+Total PLLs : 0 / 4 ( 0 % )
+UFM blocks : 0 / 1 ( 0 % )
+ADC blocks : 0 / 2 ( 0 % )

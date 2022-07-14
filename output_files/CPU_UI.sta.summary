@@ -1,0 +1,113 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'CPU:comb_286|CPU_state.execute'
+Slack : -19.281
+TNS   : -24058.492
+
+Type  : Slow 1200mV 85C Model Setup 'CLOCK_50'
+Slack : -8.539
+TNS   : -4303.490
+
+Type  : Slow 1200mV 85C Model Setup 'CPU:comb_286|CPU_state.fetch'
+Slack : -3.296
+TNS   : -84.109
+
+Type  : Slow 1200mV 85C Model Hold 'CLOCK_50'
+Slack : 0.340
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'CPU:comb_286|CPU_state.execute'
+Slack : 0.417
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'CPU:comb_286|CPU_state.fetch'
+Slack : 1.240
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -3.166
+TNS   : -1283.469
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CPU:comb_286|CPU_state.execute'
+Slack : -1.403
+TNS   : -1954.379
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CPU:comb_286|CPU_state.fetch'
+Slack : -1.403
+TNS   : -44.896
+
+Type  : Slow 1200mV 0C Model Setup 'CPU:comb_286|CPU_state.execute'
+Slack : -17.672
+TNS   : -21927.871
+
+Type  : Slow 1200mV 0C Model Setup 'CLOCK_50'
+Slack : -7.778
+TNS   : -3904.719
+
+Type  : Slow 1200mV 0C Model Setup 'CPU:comb_286|CPU_state.fetch'
+Slack : -3.126
+TNS   : -78.589
+
+Type  : Slow 1200mV 0C Model Hold 'CLOCK_50'
+Slack : 0.305
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'CPU:comb_286|CPU_state.execute'
+Slack : 0.334
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'CPU:comb_286|CPU_state.fetch'
+Slack : 1.230
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -3.166
+TNS   : -1282.317
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CPU:comb_286|CPU_state.execute'
+Slack : -1.403
+TNS   : -1954.379
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CPU:comb_286|CPU_state.fetch'
+Slack : -1.403
+TNS   : -44.896
+
+Type  : Fast 1200mV 0C Model Setup 'CPU:comb_286|CPU_state.execute'
+Slack : -8.238
+TNS   : -10138.255
+
+Type  : Fast 1200mV 0C Model Setup 'CLOCK_50'
+Slack : -3.697
+TNS   : -1802.968
+
+Type  : Fast 1200mV 0C Model Setup 'CPU:comb_286|CPU_state.fetch'
+Slack : -1.139
+TNS   : -26.082
+
+Type  : Fast 1200mV 0C Model Hold 'CLOCK_50'
+Slack : 0.148
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'CPU:comb_286|CPU_state.execute'
+Slack : 0.331
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'CPU:comb_286|CPU_state.fetch'
+Slack : 0.641
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -3.000
+TNS   : -791.298
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CPU:comb_286|CPU_state.execute'
+Slack : -1.000
+TNS   : -1393.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CPU:comb_286|CPU_state.fetch'
+Slack : -1.000
+TNS   : -32.000
+
+------------------------------------------------------------
